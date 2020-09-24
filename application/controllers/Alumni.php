@@ -21,6 +21,17 @@ class Alumni extends CI_Controller
 
 	}
 
+	public function login()
+	{
+		$result['user'] = $this->Menu->showLogin();
+		print_r($result['user']);
+		// foreach($user as $row) {
+
+		// }
+		$this->load->view('login', $result);
+
+	}
+
 	// public function showAll()
 	// {
 

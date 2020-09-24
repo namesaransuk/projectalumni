@@ -360,14 +360,7 @@
 
                                     <div class="form-group col-sm-6">
                                         <label for="">เงินเดือน</label>
-                                        <select class="browser-default custom-select" name="h_salary">
-                                            <option selected disabled>เลือก</option>
-                                            <option>น้อยกว่า 9,000</option>
-                                            <option>9,001-15,000</option>
-                                            <option>15,001-25,000</option>
-                                            <option>25,001-50,000</option>
-                                            <option>มากกว่า 50,000</option>
-                                        </select>
+                                        <input type="number" class="form-control" name="h_salary" autocomplete="off">
                                         <div class="invalid-feedback">
                                             *จำเป็น
                                         </div>

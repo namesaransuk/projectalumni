@@ -21,12 +21,19 @@ class Menu_model extends CI_Model
 		return $result;
 	}
 
-	// เพิ่มศิษเก่าเข้า database
-	function insertAlumni($result1,$result2,$result3)
+	function showLogin()
 	{
-		$this->db->insert('user',$result1);
-		$this->db->insert('address',$result2);
-		$this->db->insert('history',$result3);
+		$this->db->select('u_email, u_pass');
+		$result = $this->db->get('user');
+		return $result;
+	}
+
+	// เพิ่มศิษเก่าเข้า database
+	function insertAlumni($result1, $result2, $result3)
+	{
+		$this->db->insert('user', $result1);
+		$this->db->insert('address', $result2);
+		$this->db->insert('history', $result3);
 	}
 
 

@@ -25,12 +25,18 @@
 
 <style>
     body {
-        background-image: url('img/bg.jpg');
+        background-image: url('<?php echo base_url() ?>public/img/bg.jpg');
         font-family: 'Kanit', sans-serif;
     }
 
     #title {
         -webkit-text-stroke: 1px black;
+    }
+
+    #form {
+        -webkit-backdrop-filter: blur(5px);
+        backdrop-filter: blur(5px);
+        background-color: rgba(255, 255, 255, 0.4);
     }
 
     @media screen and (min-width: 992px) and (max-width: 1199px) {
@@ -66,7 +72,7 @@
 
     <div class="container">
         <!-- Default form login -->
-        <form class="text-center mx-auto border border-light p-5 mt-5 mb-5 col-sm-6" method="POST" action="php/l_login.php">
+        <form class="text-center mx-auto border border-light p-5 mt-5 mb-5 col-sm-6" id="form" method="POST" action="php/l_login.php">
 
 
             <h1 class="display-3 white-text" id="title">Log in</h1>
@@ -96,7 +102,7 @@
 
             <!-- Register -->
             <p>Not a member?
-                <a href="register.php">Register</a>
+                <a href="">Register</a>
             </p>
 
         </form>

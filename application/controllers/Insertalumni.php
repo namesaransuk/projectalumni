@@ -26,7 +26,7 @@ class Insertalumni extends CI_Controller
 
 			$filename = $data1['file_name'];
 			$data1 = array(
-				'id' => $this->input->post(NULL),
+				'id' => $this->input->post(""),
 				'u_tname' => $this->input->post("u_tname"),
 				'u_fname' => $this->input->post("u_fname"),
 				'u_lname' => $this->input->post("u_lname"),
@@ -44,7 +44,7 @@ class Insertalumni extends CI_Controller
 			$result1 = $this->db->insert('user', $data1);
 
 			$data2 = array(
-				'id' => $this->input->post(NULL),
+				'id' => $this->input->post(""),
 				'a_h_number' => $this->input->post("a_h_number"),
 				'a_home' => $this->input->post("a_home"),
 				'a_road' => $this->input->post("a_road"),
@@ -59,7 +59,7 @@ class Insertalumni extends CI_Controller
 			$result2 = $this->db->insert('address', $data2);
 
 			$data3 = array(
-				'id' => $this->input->post(NULL),
+				'id' => $this->input->post(""),
 				'h_type' => $this->input->post("show"),
 				'h_workplace' => $this->input->post("h_workplace"),
 				'h_h_home' => $this->input->post("h_h_home"),
@@ -78,10 +78,10 @@ class Insertalumni extends CI_Controller
 
 			$result3 = $this->db->insert('history', $data3);
 
-			if ($result1 && $result2 & $result3) {
+			if ($result1 && $result2) {
 				$this->Menu->insertAlumni($result1,$result2,$result3);
 				echo '<script> alert("สมัครสำเร็จ กรุณาเข้าสู่ระบบ !!") </script>';
-				header('Refresh:0 url=../login.php');
+				$this->load->view('login');
 			} else {
 				echo '<script> alert("เกิดข้อผิดพลาด โปรดลองใหม่อีกครั้ง !!") </script>';
 			}
