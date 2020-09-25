@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark secondary-color">
 
     <!-- Navbar brand -->
-    <a class="navbar-brand" href="index.php"><img src="<?php base_url() ?>public/img/npru.png" width="35" alt=""></a>
+    <a class="navbar-brand" href="index.php"><img src="../../public/img/npru.png" width="35" alt=""></a>
 
     <!-- Collapse button -->
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav" aria-controls="basicExampleNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -50,7 +50,7 @@
                 <li class="nav-item dropdown">
                     <div class="dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            ยินดีต้อนรับ คุณ <?php echo $_SESSION['fname'] ?>
+                            ยินดีต้อนรับ คุณ <?php echo $_SESSION['u_fname'] ?>
                         </a>
                         <div class="dropdown-menu dropdown-primary text-center">
                             <a class="dropdown-item" href="profile.php">ข้อมูลส่วนตัว</a>

@@ -29,11 +29,11 @@ class Menu_model extends CI_Model
 	}
 
 	// เพิ่มศิษเก่าเข้า database
-	function insertAlumni($result1, $result2, $result3)
+	function insertAlumni($data1, $data2, $data3)
 	{
-		$this->db->insert('user', $result1);
-		$this->db->insert('address', $result2);
-		$this->db->insert('history', $result3);
+		$this->db->insert('user', $data1);
+		$this->db->insert('address', $data2);
+		$this->db->insert('history', $data3);
 	}
 
 

@@ -71,17 +71,24 @@
     <?php include('component/header.php') ?>
 
     <div class="container">
+
         <!-- Default form login -->
-        <form class="text-center mx-auto border border-light p-5 mt-5 mb-5 col-sm-6" id="form" method="POST" action="php/l_login.php">
-
-
-            <h1 class="display-3 white-text" id="title">Log in</h1>
-
+        <form class="text-center mx-auto border border-light p-5 mt-5 mb-5 col-sm-6" id="form" method="POST" action="../Loginalumni/sendlogin">
+        
+        
+        <h1 class="display-3 white-text" id="title">Log in</h1>
+        
+        <?php if (isset($_SESSION['success'])) { ?>
+            <div class="alert alert-success"><?php echo $_SESSION['seccess'] ?></div>
+        <?php 
+        } 
+        ?>
+        <?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
             <!-- Email -->
-            <input type="email" id="defaultLoginFormEmail" name="u_email" class="form-control mb-4" placeholder="E-mail">
+            <input type="email" id="defaultLoginFormEmail" name="u_email" id="u_email" class="form-control mb-4" placeholder="E-mail">
 
             <!-- Password -->
-            <input type="password" id="defaultLoginFormPassword" name="u_pass" class="form-control mb-4" placeholder="Password">
+            <input type="password" id="defaultLoginFormPassword" name="u_pass" id="u_pass" class="form-control mb-4" placeholder="Password">
 
             <div class="d-flex justify-content-around">
                 <div>
