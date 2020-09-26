@@ -73,23 +73,27 @@
     <div class="container">
 
         <!-- Default form login -->
-        <form class="text-center mx-auto border border-light p-5 mt-5 mb-5 col-sm-6" id="form" method="POST" action="../Loginalumni/sendlogin">
-        
-        
-        <h1 class="display-3 white-text" id="title">Log in</h1>
-        
-        <?php if (isset($_SESSION['success'])) { ?>
-            <div class="alert alert-success"><?php echo $_SESSION['seccess'] ?></div>
-        <?php 
-        } 
-        ?>
-        <?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
+        <form class="text-center mx-auto border border-light p-5 mt-5 mb-5 col-sm-6" id="form" method="POST" action="../Loginalumni/sendlogin" novalidate>
+
+
+            <h1 class="display-3 white-text" id="title">Log in</h1>
+
+            <?php if (isset($_SESSION['success'])) { ?>
+                <div class="alert alert-success"><?php echo $_SESSION['success'] ?></div>
+            <?php
+            }
+            ?>
+            <?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
             <!-- Email -->
-            <input type="email" id="defaultLoginFormEmail" name="u_email" id="u_email" class="form-control mb-4" placeholder="E-mail">
-
+            <input type="email" id="defaultLoginFormEmail" name="u_email" id="u_email" class="form-control mb-4" autocomplete="off" placeholder="E-mail">
+            <div class="invalid-feedback">
+                
+            </div>
             <!-- Password -->
-            <input type="password" id="defaultLoginFormPassword" name="u_pass" id="u_pass" class="form-control mb-4" placeholder="Password">
-
+            <input type="password" id="defaultLoginFormPassword" name="u_pass" id="u_pass" class="form-control mb-4" autocomplete="off" placeholder="Password">
+            <div class="invalid-feedback">
+                
+            </div>
             <div class="d-flex justify-content-around">
                 <div>
                     <!-- Remember me -->
@@ -109,13 +113,25 @@
 
             <!-- Register -->
             <p>Not a member?
-                <a href="">Register</a>
+                <a href="../alumni/register">Register</a>
             </p>
 
         </form>
         <!-- Default form login -->
     </div>
 
+    <script type="text/javascript">
+        $(function() {
+            $("#form").on("submit", function() {
+                var form = $(this)[0];
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            });
+        });
+    </script>
 
     <!-- JQuery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

@@ -25,7 +25,7 @@
 
 <style>
     body {
-        background-image: url('img/bg.jpg');
+        background-image: url('<?php echo base_url() ?>public/img/bg.jpg');
         font-family: 'Kanit', sans-serif;
     }
 
@@ -71,23 +71,16 @@
 
 <body>
 
-    <?php include('component/header.php') ?>
+    <?php $this->load->view('component/header') ?>
     <?php
-    include('php/show_alumni.php');
-    // if (isset($_GET['u_id'])) {
-    //     $strID = $_GET['u_id'];
-    // }
-    // $sql = "SELECT * FROM user WHERE '".$_GET['u_id']."'";
-    // $stmt = $conn->query($sql);
-    $result = $stmt4->fetch(PDO::FETCH_ASSOC);
-    // $result3 = $stmt3->fetch(PDO::FETCH_ASSOC);
+    foreach ($user->result_array() as $result) {
     ?>
 
     <div class="container mt-3">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb purple lighten-4">
-                <li class="breadcrumb-item"><a class="black-text" href="index.php">Home</a><i class="fas fa-angle-right mx-2" aria-hidden="true"></i></li>
-                <li class="breadcrumb-item"><a class="black-text" href="alumnilist.php">Alumni</a><i class="fas fa-angle-right mx-2" aria-hidden="true"></i></li>
+                <li class="breadcrumb-item"><a class="black-text" href="../alumni/index">Home</a><i class="fas fa-angle-right mx-2" aria-hidden="true"></i></li>
+                <li class="breadcrumb-item"><a class="black-text" href="../alumni/alumnilist">Alumni</a><i class="fas fa-angle-right mx-2" aria-hidden="true"></i></li>
                 <li class="breadcrumb-item active"><?php echo $result['u_fname'] ?></li>
             </ol>
         </nav>
@@ -96,12 +89,12 @@
     <div class="container mt-2 mb-5">
         <div class="card p-3">
             <div class="card-body">
-
+                
                 <div class="container">
                     <div class="form-group text-center">
-                        <img src="upload/<?php echo $result['u_picture'] ?>" width="250" alt="">
+                        <img src="<?php echo base_url() ?>public/upload/<?php echo $result['u_picture'] ?>" width="250" alt="">
                     </div>
-
+                    
                     <h5 class="mb-3"><b>ข้อมูลส่วนตัว</b></h5>
                     <div class="form-group">
                         <label class="col-3">ชื่อ-นามสกุล</label>
@@ -159,6 +152,7 @@
             </div>
         </div>
     </div>
+    <?php } ?>
 
 
     <!-- JQuery -->

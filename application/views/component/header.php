@@ -14,29 +14,25 @@
 
         <!-- Links -->
         <ul class="navbar-nav mr-auto">
-            <?php if ($_SERVER['SCRIPT_NAME'] == '/projectAlumni/index.php') { ?>
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Home
+                <!-- <li class="nav-item active">
+                    <a class="nav-link" href="../alumni/index">Home
                         <span class="sr-only">(current)</span>
                     </a>
-                </li>
-            <?php } else { ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-            <?php } ?>
+                </li> -->
 
-            <?php if ($_SERVER['SCRIPT_NAME'] == '/projectAlumni/alumnilist.php') { ?>
-                <li class="nav-item active">
-                    <a class="nav-link" href="alumnilist.php">Alumni List</a>
+                <li class="nav-item <?php echo activate_menu('alumni/index'); ?>">
+                    <a class="nav-link" href="../alumni/index">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
                 </li>
-            <?php } else { ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="alumnilist.php">Alumni List</a>
+
+                <!-- <li class="nav-item active">
+                    <a class="nav-link" href="../alumni/alumnilist">Alumni List</a>
+                </li> -->
+
+                <li class="nav-item <?php echo activate_menu('alumni/alumnilist'); ?>">
+                    <a class="nav-link" href="../alumni/alumnilist">Alumni List</a>
                 </li>
-            <?php } ?>
         </ul>
         <!-- Links -->
 
@@ -53,14 +49,14 @@
                             ยินดีต้อนรับ คุณ <?php echo $_SESSION['u_fname'] ?>
                         </a>
                         <div class="dropdown-menu dropdown-primary text-center">
-                            <a class="dropdown-item" href="profile.php">ข้อมูลส่วนตัว</a>
+                            <a class="dropdown-item" href="../Alumni/profile?id=<?php echo $_SESSION['id'] ?>">ข้อมูลส่วนตัว</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="php/l_logout.php">ออกจากระบบ</a>
+                            <a class="dropdown-item" href="../Loginalumni/sendlogout">ออกจากระบบ</a>
                         </div>
                     </div>
                 </li>
             <?php } else { ?>
-                <a role="button" class="btn btn-sm btn-success" href="login.php">เข้าสู่ระบบ</a>
+                <a role="button" class="btn btn-sm btn-success" href="../alumni/login">เข้าสู่ระบบ</a>
             <?php } ?>
         </ul>
 

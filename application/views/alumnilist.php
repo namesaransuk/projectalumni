@@ -25,7 +25,7 @@
 
 <style>
     body {
-        background-image: url('img/bg.jpg');
+        background-image: url('<?php echo base_url() ?>public/img/bg.jpg');
         font-family: 'Kanit', sans-serif;
     }
 
@@ -71,7 +71,7 @@
 
 <body>
 
-    <?php include('component/header.php') ?>
+    <?php $this->load->view('component/header') ?>
 
     <div class="container mt-5 mb-5">
         <div class="card p-3">
@@ -101,22 +101,21 @@
                 <?php } ?>
 
                 <?php
-                include('php/show_alumni.php');
-                while ($result = $stmt1->fetch(PDO::FETCH_ASSOC)) {
+                foreach ($user->result_array() as $result) {
                 ?>
-                    <div class="row border border-secondary pt-2 mb-2 rounded-pill shadow">
+                    <div class="row border border-secondary mt-2 mb-2 rounded-pill shadow">
                         <div class="form-group col-sm-3 my-auto text-center">
-                            <img src="upload/<?php echo $result['u_picture'] ?>" class="border border-light rounded mb-0" width="150" alt="">
+                            <img src="<?php echo base_url() ?>public/upload/<?php echo $result['u_picture'] ?>" class="border border-light rounded mb-0" width="110" height="110" alt="">
                         </div>
 
-                        <div class="col-sm-6 my-auto">
+                        <div class="col-sm-6 pt-3 my-auto">
                             <div class="form-group">
                                 <label class="col-3"><b>ชื่อ-นามสกุล</b></label>
                                 <?php echo $result['u_tname'] ?> <?php echo $result['u_fname'] ?> <?php echo $result['u_lname'] ?>
                             </div>
 
                             <div class="form-group">
-                                <label class="col-3"><b>ปีที่จบ</b></label>
+                                <label class="col-3"><b>ปีการศึกษา</b></label>
                                 <?php echo $result['u_year'] ?>
                             </div>
                             <div class="form-group">
@@ -127,7 +126,7 @@
 
                         <div class="form-group col-sm-2 my-auto text-center">
                             <?php if (isset($_SESSION['id'])) { ?>
-                                <a class="btn purple-gradient" role="submit" href="information.php?id=<?php echo @$result['id'] ?>">ดูรายละเอียด</a>
+                                <a class="btn purple-gradient" role="submit" href="information?id=<?php echo $result['id'] ?>">ดูรายละเอียด</a>
                             <?php } else { ?>
                                 <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="กรุณาเข้าสู่ระบบเพื่อดูรายละเอียดเพิ่มเติม">
                                     <button class="btn purple-gradient" style="pointer-events: none;" type="button" disabled>ดูรายละเอียด</button>

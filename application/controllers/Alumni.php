@@ -18,17 +18,30 @@ class Alumni extends CI_Controller
 	{
 		$result['provinces'] = $this->Menu->showProvinces();
 		$this->load->view('register', $result);
-
 	}
 
 	public function login()
 	{
-		// print_r($result['user']);
-		// foreach($user as $row) {
-
-		// }
 		$this->load->view('login');
+	}
 
+	public function alumnilist()
+	{
+		$result['user'] = $this->Menu->showAlumni();
+		$this->load->view('alumnilist', $result);
+	}
+
+	public function information()
+	{
+		$result['user'] = $this->Menu->showDataAlumni();
+		$this->load->view('information', $result);
+	}
+
+	public function profile()
+	{
+		$result['user'] = $this->Menu->showDataAlumni();
+		$result['provinces'] = $this->Menu->showProvinces();
+		$this->load->view('profile', $result);
 	}
 
 	// public function showAll()
