@@ -44,6 +44,27 @@ class Alumni extends CI_Controller
 		$this->load->view('profile', $result);
 	}
 
+	public function search()
+	{
+		$postData = $this->input->post();
+
+		$data = $this->Manu->getSearchUsers($postData);
+	
+		echo json_encode($data);
+		// echo $data;
+		// $this->load->view('alumnilist', $data);
+	}
+
+	public function test()
+	{
+		// $postData = $this->input->post();
+
+		// $data = $this->Manu->getSearchUsers($postData);
+	
+		// echo json_encode($data);
+		$this->load->view('test');
+	}
+
 	// public function showAll()
 	// {
 

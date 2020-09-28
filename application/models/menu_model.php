@@ -45,6 +45,24 @@ class Menu_model extends CI_Model
 		return $result;
 	}
 
+	function getSearchUsers($postData=array()){
+ 
+		$response = array();
+	 
+		if(isset($postData['u_std']) ){
+	 
+		  // Select record
+		  $this->db->select('*');
+		  $this->db->from('user');
+		  $this->db->like('u_std', $postData['u_std'], 'both'); 
+		//   $this->db->where('u_std', $postData['u_std']);
+		  $query = $this->db->get();
+		  $response = $query->result_array();
+	 
+		}
+	 
+		return $response;
+	  }
 
 	// แสดงลิส จังหวัดในหน้า register
 	function showProvinces()

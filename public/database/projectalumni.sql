@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 04, 2020 at 05:50 AM
+-- Generation Time: Sep 27, 2020 at 03:05 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -46,8 +46,9 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`id`, `a_h_number`, `a_home`, `a_road`, `a_zone`, `a_district`, `a_province`, `a_code`, `a_h_phone`, `a_phone`) VALUES
-(1, '21', '2', 'dfsdfsdf', 'sdfsdfsdf', 'sdfsdf', 'ราชบุรี', '70000', '-', '0966957754'),
-(2, '32', '7', 'nseuf', 'weffwe', 'wefwef', 'ระยอง', '17954', '-', '0899999999');
+(1, '23', '3', 'sdfaasdf', 'wdwqeqw', 'dewfwef', 'ราชบุรี', '70000', '021123321', '0844522365'),
+(2, '23', '3', 'sdfaasdf', 'wdwqeqw', 'dewfwef', 'ราชบุรี', '70000', '021123321', '0844522365'),
+(3, '23', '3', 'sdfaasdf', 'wdwqeqw', 'dewfwef', 'ราชบุรี', '70000', '021123321', '0844522365');
 
 -- --------------------------------------------------------
 
@@ -79,7 +80,8 @@ CREATE TABLE `history` (
 
 INSERT INTO `history` (`id`, `h_type`, `h_workplace`, `h_h_home`, `h_home`, `h_road`, `h_zone`, `h_district`, `h_province`, `h_postal`, `h_h_phone`, `h_phone`, `h_position`, `h_salary`, `h_email`) VALUES
 (1, 'ไม่ต้องการระบุ', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(2, 'ปัจจุบันทำงาน', 'ทุ่งขวาง', '32', '8', 'ีทกดทหฟก', 'หกดิี่หกาด', 'หำไหย่', 'ตราด', '796521', '-', '0899999999', 'ติดคุก', 'น้อยกว่า 9,000', 'rgerger@gmail.com');
+(2, 'ไม่ต้องการระบุ', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(3, 'ไม่ต้องการระบุ', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -215,8 +217,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `u_tname`, `u_fname`, `u_lname`, `u_email`, `u_std`, `u_pass`, `u_gen`, `u_faculty`, `u_major`, `u_year`, `u_fb`, `u_picture`) VALUES
-(1, 'นางสาว', 'ปราณี', 'ปราณีต', 'namesaransuk@gmail.com', 614259047, '12345678', 12, 'คณะวิทยาศาสตร์และเทคโนโลยี', 'วิศวกรรมซอฟต์แวร์', 2561, 'Pranee Praneed', 'picpost-1_03-Jul-2019_17-05.jpeg'),
-(2, 'นาย', 'เจษฎากร', 'โสดา', 'beer@hotmail.com', 6145896, '12345678', 5, 'คณะวิทยาศาสตร์และเทคโนโลยี', 'เรื่องของกู', 2538, 'beer beer', 'images.jfif');
+(1, 'นาย', 'เจษฏากร', 'โสดา', '614259006@webmail.npru.ac.th', 614259006, '25d55ad283aa400af464c76d713c07ad', 11, 'คณะวิทยาศาสตร์และเทคโนโลยี', 'se', 2561, 'Jetsadakorn Soda', '96370875_1832405950223366_2807979008862453760_o3.jpg'),
+(2, 'นาย', 'กรวิชญ์', 'อู่อรุณ', '614259021@webmail.npru.ac.th', 614259021, '579646aad11fae4dd295812fb4526245', 11, 'คณะวิทยาศาสตร์และเทคโนโลยี', 'se', 2561, 'korawit u-arun', '55437934_2100345136746142_3364480279342219264_o2.jpg'),
+(3, 'นาย', 'ศรัณย์สุข', 'ยิ้มย่อง', '614259047@webmail.npru.ac.th', 614259047, '25d55ad283aa400af464c76d713c07ad', 11, 'คณะวิทยาศาสตร์และเทคโนโลยี', 'se', 2561, 'saransuk yimyong', '36883902_612368582476284_8240549018334134272_o1.jpg');
 
 --
 -- Indexes for dumped tables
@@ -260,13 +263,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `address`
 --
 ALTER TABLE `address`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ไอดี', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ไอดี', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ไอดี', AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ไอดี', AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `provinces`
@@ -284,7 +287,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
