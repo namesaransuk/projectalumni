@@ -136,45 +136,55 @@
 
                 <div id="list-default">
                     <?php
-                    
-                    foreach ($user->result_array() as $result) {
+                    $result = $user->num_rows();
+                    if ($result == 0) {
                     ?>
-                        <div class="row border border-secondary mt-2 mb-2 rounded-pill shadow">
-                            <div class="form-group col-sm-3 my-auto text-center">
-                                <img src="<?php echo base_url() ?>public/upload/<?php echo $result['u_picture'] ?>" class="border border-light rounded mb-0" width="110" height="110" alt="">
-                            </div>
-
-                            <div class="col-sm-6 pt-3 my-auto">
-                                <div class="form-group">
-                                    <label class="col-3"><b>ชื่อ-นามสกุล</b></label>
-                                    <?php echo $result['u_tname'] ?> <?php echo $result['u_fname'] ?> <?php echo $result['u_lname'] ?>
-                                </div>
-
-                                <div class="form-group">
-                                    <label class="col-3"><b>ปีการศึกษา</b></label>
-                                    <?php echo $result['u_year'] ?>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-3"><b>อีเมล์</b></label>
-                                    <?php echo $result['u_email'] ?>
-                                </div>
-                            </div>
-
-                            <div class="form-group col-sm-2 my-auto text-center">
-                                <?php if (isset($_SESSION['id'])) { ?>
-                                    <a class="btn purple-gradient" role="submit" href="information?id=<?php echo $result['id'] ?>">ดูรายละเอียด</a>
-                                <?php } else { ?>
-                                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="กรุณาเข้าสู่ระบบเพื่อดูรายละเอียดเพิ่มเติม">
-                                        <button class="btn purple-gradient" style="pointer-events: none;" type="button" disabled>ดูรายละเอียด</button>
-                                    </span>
-                                <?php } ?>
-                            </div>
+                        <div class="text-center">
+                            <h2>ไม่มีรายชื่อศิษย์เก่านี้</h2>
                         </div>
-                    <?php } ?>
+                        <?php
+                    } else {
+                        foreach ($user->result_array() as $result) {
+                        ?>
+                            <div class="row border border-secondary mt-2 mb-2 rounded-pill shadow">
+                                <div class="form-group col-sm-3 my-auto text-center">
+                                    <img src="<?php echo base_url() ?>public/upload/<?php echo $result['u_picture'] ?>" class="border border-light rounded mb-0" width="110" height="110" alt="">
+                                </div>
+
+                                <div class="col-sm-6 pt-3 my-auto">
+                                    <div class="form-group">
+                                        <label class="col-3"><b>ชื่อ-นามสกุล</b></label>
+                                        <?php echo $result['u_tname'] ?> <?php echo $result['u_fname'] ?> <?php echo $result['u_lname'] ?>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-3"><b>ปีการศึกษา</b></label>
+                                        <?php echo $result['u_year'] ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-3"><b>อีเมล์</b></label>
+                                        <?php echo $result['u_email'] ?>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-sm-2 my-auto text-center">
+                                    <?php if (isset($_SESSION['id'])) { ?>
+                                        <a class="btn purple-gradient" role="submit" href="information?id=<?php echo $result['id'] ?>">ดูรายละเอียด</a>
+                                    <?php } else { ?>
+                                        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="กรุณาเข้าสู่ระบบเพื่อดูรายละเอียดเพิ่มเติม">
+                                            <button class="btn purple-gradient" style="pointer-events: none;" type="button" disabled>ดูรายละเอียด</button>
+                                        </span>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                    <?php
+                        }
+                    }
+                    ?>
                 </div>
 
                 <div id="list-data">
-                    
+
                 </div>
 
             </div>

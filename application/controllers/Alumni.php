@@ -46,13 +46,15 @@ class Alumni extends CI_Controller
 
 	public function search()
 	{
-		$postData = $this->input->post();
+		// $data = $this->input->post();
 
-		$data = $this->Manu->getSearchUsers($postData);
+		// $data = $this->Manu->getSearchUsers($data);
 	
-		echo json_encode($data);
-		// echo $data;
-		// $this->load->view('alumnilist', $data);
+		// echo json_encode($data);
+
+		$data = $this->input->post('u_std');
+		$result['user'] = $this->Menu->getSearchUsers($data);
+		$this->load->view('alumnisearch', $result);
 	}
 
 	public function test()
