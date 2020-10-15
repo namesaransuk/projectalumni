@@ -52,7 +52,7 @@ class Alumni extends CI_Controller
 	
 		// echo json_encode($data);
 
-		$data = $this->input->post('u_std');
+		$data = $this->input->post('searchalumni');
 		$result['user'] = $this->Menu->getSearchUsers($data);
 		$this->load->view('alumnisearch', $result);
 	}
