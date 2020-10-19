@@ -136,7 +136,7 @@
 
                 <div id="list-default">
                     <?php
-                    
+
                     foreach ($user->result_array() as $result) {
                     ?>
                         <div class="row border border-secondary mt-2 mb-2 rounded-pill shadow">
@@ -174,7 +174,7 @@
                 </div>
 
                 <div id="list-data">
-                    
+
                 </div>
 
             </div>

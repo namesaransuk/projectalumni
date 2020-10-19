@@ -49,12 +49,14 @@ class Alumni extends CI_Controller
 		// $data = $this->input->post();
 
 		// $data = $this->Manu->getSearchUsers($data);
-	
+
 		// echo json_encode($data);
 
 		$data = $this->input->post('searchalumni');
 		$result['user'] = $this->Menu->getSearchUsers($data);
 		$this->load->view('alumnisearch', $result);
+		// $this->session->set_flashdata('result',$result);
+		// redirect('Alumni/alumnisearch', 'refresh');
 	}
 
 	public function test()
@@ -62,7 +64,7 @@ class Alumni extends CI_Controller
 		// $postData = $this->input->post();
 
 		// $data = $this->Manu->getSearchUsers($postData);
-	
+
 		// echo json_encode($data);
 		$this->load->view('test');
 	}

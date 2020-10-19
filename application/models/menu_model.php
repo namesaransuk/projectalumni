@@ -45,13 +45,13 @@ class Menu_model extends CI_Model
 		return $result;
 	}
 
-	function getSearchUsers($data,$data1)
+	function getSearchUsers($data)
 	{
 		$this->db->select('*');
 		$this->db->from('user');
-		$this->db->like(array(
-			'u_fname', $data, 'both',
-	'u_std', $data, 'both'));
+		$this->db->like('u_std', $data, 'both');
+		$this->db->or_like('u_fname', $data, 'both');
+		$this->db->or_like('u_lname', $data, 'both');
 		$result = $this->db->get();
 		return $result;
 	}
