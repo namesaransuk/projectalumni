@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>test</title>
 </head>
 <body>
 <form name="searchform" id="searchform" method="POST" action="../alumni/search" class="form-inline d-flex justify-content-center md-form form-sm active-cyan active-cyan-2 mt-2">

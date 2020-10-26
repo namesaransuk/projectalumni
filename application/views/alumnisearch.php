@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Log in</title>
-
-    <link rel="shortcut icon" type="image/x-icon" href="img/title-npru.png" />
+    <title>alumnilist</title>
+    
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url() ?>public/img/title-npru.png" />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -136,51 +136,53 @@
 
                 <div id="list-default">
                     <?php
-                    $result = $user->num_rows();
-                    if ($result == 0) {
+
+                    foreach ($user->result_array()  as $result) {
                     ?>
-                        <div class="text-center">
-                            <h2>ไม่มีรายชื่อศิษย์เก่านี้</h2>
-                        </div>
-                        <?php
-                    } else {
-                        foreach ($user->result_array() as $result) {
-                        ?>
-                            <div class="row border border-secondary mt-2 mb-2 rounded-pill shadow">
-                                <div class="form-group col-sm-3 my-auto text-center">
-                                    <img src="<?php echo base_url() ?>public/upload/<?php echo $result['u_picture'] ?>" class="border border-light rounded mb-0" width="110" height="110" alt="">
-                                </div>
-
-                                <div class="col-sm-6 pt-3 my-auto">
-                                    <div class="form-group">
-                                        <label class="col-3"><b>ชื่อ-นามสกุล</b></label>
-                                        <?php echo $result['u_tname'] ?> <?php echo $result['u_fname'] ?> <?php echo $result['u_lname'] ?>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label class="col-3"><b>ปีการศึกษา</b></label>
-                                        <?php echo $result['u_year'] ?>
-                                    </div>
-                                    <div class="form-group">
-                                        <label class="col-3"><b>อีเมล์</b></label>
-                                        <?php echo $result['u_email'] ?>
-                                    </div>
-                                </div>
-
-                                <div class="form-group col-sm-2 my-auto text-center">
-                                    <?php if (isset($_SESSION['id'])) { ?>
-                                        <a class="btn purple-gradient" role="submit" href="information?id=<?php echo $result['id'] ?>">ดูรายละเอียด</a>
-                                    <?php } else { ?>
-                                        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="กรุณาเข้าสู่ระบบเพื่อดูรายละเอียดเพิ่มเติม">
-                                            <button class="btn purple-gradient" style="pointer-events: none;" type="button" disabled>ดูรายละเอียด</button>
-                                        </span>
-                                    <?php } ?>
-                                </div>
+                        <div class="row border border-secondary mt-2 mb-2 rounded-pill shadow">
+                            <div class="form-group col-sm-3 my-auto text-center">
+                                <img src="<?php echo base_url() ?>public/upload/<?php echo $result['u_picture'] ?>" class="border border-light rounded mb-0" width="110" height="110" alt="">
                             </div>
-                    <?php
-                        }
-                    }
-                    ?>
+
+                            <div class="col-sm-6 pt-3 my-auto">
+                                <div class="form-group">
+                                    <label class="col-3"><b>ชื่อ-นามสกุล</b></label>
+                                    <?php echo $result['u_tname'] ?> <?php echo $result['u_fname'] ?> <?php echo $result['u_lname'] ?>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-3"><b>รหัสนักศึกษา</b></label>
+                                    <?php echo $result['u_std'] ?>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-3"><b>หมู่เรียน</b></label>
+                                    <?php echo $result['u_gen'] ?>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-3"><b>ปีการศึกษา</b></label>
+                                    <?php echo $result['u_year'] ?>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-3"><b>จังหวัด</b></label>
+                                    <?php echo $result['a_province'] ?>
+                                </div>
+                              
+                            </div>
+
+                            <div class="form-group col-sm-2 my-auto text-center">
+                                <?php if (isset($_SESSION['id'])) { ?>
+                                    <a class="btn purple-gradient" role="submit" href="information?id=<?php echo $result['id'] ?>">ดูรายละเอียด</a>
+                                <?php } else { ?>
+                                    <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="กรุณาเข้าสู่ระบบเพื่อดูรายละเอียดเพิ่มเติม">
+                                        <button class="btn purple-gradient" style="pointer-events: none;" type="button" disabled>ดูรายละเอียด</button>
+                                    </span>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    <?php } ?>
                 </div>
 
                 <div id="list-data">

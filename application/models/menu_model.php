@@ -25,6 +25,7 @@ class Menu_model extends CI_Model
 
 	function showAlumni()
 	{
+		$this->db->join('address', 'address.id = user.id');
 		$result = $this->db->get('user');
 		return $result;
 	}
@@ -49,9 +50,13 @@ class Menu_model extends CI_Model
 	{
 		$this->db->select('*');
 		$this->db->from('user');
+		$this->db->join('address', 'address.id = user.id');
 		$this->db->like('u_std', $data, 'both');
 		$this->db->or_like('u_fname', $data, 'both');
 		$this->db->or_like('u_lname', $data, 'both');
+		$this->db->or_like('u_year', $data, 'both');
+		$this->db->or_like('u_gen', $data, 'both');
+		$this->db->or_like('a_province', $data, 'both');
 		$result = $this->db->get();
 		return $result;
 	}

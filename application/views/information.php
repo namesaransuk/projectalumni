@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Log in</title>
+    <title>information</title>
 
-    <link rel="shortcut icon" type="image/x-icon" href="img/title-npru.png" />
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo base_url() ?>public/img/title-npru.png" />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -92,7 +92,7 @@
                 
                 <div class="container">
                     <div class="form-group text-center">
-                        <img src="<?php echo base_url() ?>public/upload/<?php echo $result['u_picture'] ?>" width="250" alt="">
+                        <img src="<?php echo base_url() ?>public/upload/<?php echo $result['u_picture'] ?>"class="rounded-circle" width="250" alt="">
                     </div>
                     
                     <h5 class="mb-3"><b>ข้อมูลส่วนตัว</b></h5>
@@ -115,6 +115,16 @@
                     <div class="form-group">
                         <label class="col-3">ปีที่จบ</label>
                         <?php echo $result['u_year'] ?>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-3">เบอร์โทรศัพท์</label>
+                        <?php echo $result['a_phone'] ?>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-3">ที่อยู่</label>
+                        <?php echo $result['a_h_number'] ?> <?php echo $result['a_home'] ?> <?php echo $result['a_road'] ?> <?php echo $result['a_zone'] ?> <?php echo $result['a_district'] ?> <?php echo $result['a_province'] ?> <?php echo $result['a_code'] ?>
                     </div>
 
                     <div class="form-group">
@@ -146,6 +156,8 @@
                         <label class="col-3">ตำแหน่ง</label>
                         <?php echo $result['h_position'] ?>
                     </div>
+
+
 
                 </div>
 
